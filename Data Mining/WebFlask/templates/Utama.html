@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berapa Lama Mendapatkan Kerja Setelah Lulus</title>
+    <style>
+        /* Reset style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"],
+        select {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            border-color: #74ebd5;
+        }
+
+        button {
+            padding: 14px;
+            background-color: #74ebd5;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #5ac2b4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Berapa Lama Mendapatkan Kerja Setelah Lulus</h1>
+    <form id="jobForm">
+        <div>
+            <label for="ipk">IPK</label>
+            <input type="text" id="ipk" name="ipk" placeholder="Masukkan IPK">
+        </div>
+
+        <div>
+            <label for="organisasi">Organisasi</label>
+            <select id="organisasi" name="organisasi">
+                <option value="">Pilih</option>
+                <option value="ya">Ya</option>
+                <option value="tidak">Tidak</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="magang">Magang MBKM</label>
+            <select id="magang" name="magang">
+                <option value="">Pilih</option>
+                <option value="ya">Ya</option>
+                <option value="tidak">Tidak</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="lama_studi">Lama Studi (dalam tahun)</label>
+            <input type="text" id="lama_studi" name="lama_studi" placeholder="Contoh: 4.0">
+        </div>
+
+        <div>
+            <label for="sertifikasi">Sertifikasi Tambahan</label>
+            <select id="sertifikasi" name="sertifikasi">
+                <option value="">Pilih</option>
+                <option value="ya">Ya</option>
+                <option value="tidak">Tidak</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="bahasa">Kemampuan Bahasa Asing</label>
+            <select id="bahasa" name="bahasa">
+                <option value="">Pilih</option>
+                <option value="ya">Ya</option>
+                <option value="tidak">Tidak</option>
+            </select>
+        </div>
+
+        <button type="button" onclick="handleSubmit()">Kirim</button>
+    </form>
+</div>
+
+<script>
+    function handleSubmit() {
+        var ipk = document.getElementById("ipk").value;
+        var organisasi = document.getElementById("organisasi").value;
+        var magang = document.getElementById("magang").value;
+        var lamaStudi = document.getElementById("lama_studi").value;
+        var sertifikasi = document.getElementById("sertifikasi").value;
+        var bahasa = document.getElementById("bahasa").value;
+
+        // Evaluasi kondisi untuk menentukan halaman tujuan
+        if (parseFloat(ipk) >= 3.0 && organisasi === "ya" && magang === "ya") {
+            // Halaman Mendapatkan Pekerjaan Kurang dari 3 Bulan
+            window.location.href = "/yes";
+        } else {
+            // Halaman Mendapatkan Pekerjaan Lebih dari 3 Bulan
+            window.location.href = "/no";
+        }
+    }
+</script>
+
+</body>
+</html>
